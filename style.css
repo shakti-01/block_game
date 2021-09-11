@@ -1,0 +1,131 @@
+div #block{
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  position: relative;
+  animation-name: first_ani;
+  animation-duration: 37s;
+  animation-iteration-count: infinite;
+  animation-direction:alternate;
+  animation-timing-function: linear;
+  animation-play-state: paused;
+}
+
+@keyframes first_ani {
+  0%   {background-color:cyan; left:0px; top:0px;}
+  6%  {background-color:#99ebff; left:38%; top:225px; }
+  9% {background-color:Cyan; left:38%; top:113px;}
+  11% {background-color:DarkBlue; left:28%; top:124px;}
+  14% {background-color:#00b8e6; left:28%; top:0px;}
+  18% {background-color:#1a75ff; left:48%; top: 10px;}
+  21% {background-color:Indigo; left: 48%; top: 113px;}
+  25%  {background-color:#0052cc; left:76%; top:0px;}
+  29% {background-color: #0066cc; left:86%; top: 225px;}
+  33% {background-color:Cyan; left: 95%; top: 5px;}
+  37% {background-color:#8080ff; left: 95%; top: 350px;}
+  40% {background-color:blue; left:80%; top:315px;}
+  46% {background-color:#0000cc; left:95%; top:430px;}
+  50%  {background-color:	#4da6ff; left:73%; top:450px;}
+  56% {background-color:cyan; left: 73%; top: 170px;}
+  61% {background-color: #0099cc; left: 33%; top:430px;}
+  65% {background-color:Indigo; left: 70%; top: 430px;}
+  72% {background-color:#4dd2ff; left: 20%; top: 450px;}
+  76%  {background-color: #1a75ff; left:33%; top:243px;}
+  80% {background-color:#0047b3; left: 3%; top: 297px;}
+  84% {background-color: #00a3cc; left: 0%; top: 203px;}
+  88% {background-color:#66e0ff; left:20%; top: 203px;}
+  93% {background-color: #4d4dff; left: 20%; top: 450px;}
+  100% {background-color:#33adff; left:0px; top:0px;}
+}
+
+#container
+{
+  background-color:black;
+  border: solid 5px cyan;
+  margin:auto;
+  margin-top:13px;
+}
+div #block:hover 
+{
+  cursor:pointer;
+  box-shadow: 0 0 10px #03e9f4,
+              0 0 25px #03e9f4;
+              
+              
+}
+#score{display:none;
+background-color:#03e9f4;color:black;padding:10px;}
+#timer{margin-left:50px;}
+#op_time:hover{cursor:not-allowed;}
+#reset {margin-left:50px;}
+#d {margin-left:15%;}
+/*--------customizable-----*/
+body {
+  font-family: 'Nova Square', cursive;
+  margin:20px;
+  background: linear-gradient(#141e30, #243b55);
+  color: #00e6e6;
+  font-size:16px;
+}
+ul {list-style-type: square;}
+#rule
+{
+  border: 4px solid #004d4d;
+  padding:6px;
+  border-radius:13px;
+  padding-left:25px;
+  margin-top:50px;
+}
+#header:hover
+{
+  transform: rotate(360deg);
+  border:solid 3px #03e9f4;
+}
+#header{transition:5s;display:inline-block;box-shadow: 10px 10px 10px black;padding-right:20px;margin-bottom:20px;}
+
+#rule:hover
+{
+  border-color:#00e6e6;
+}
+input[type="button"]
+{
+  background-color:#141e30;
+  color:#03e9f4;
+  padding: 8px 16px;
+  text-align: center;
+  font-family: monospace;
+  border:solid 1px;
+  border-radius: 5px;
+}
+#pause_btn{margin-left:30px;}
+input[type="button"]:hover
+{
+  background: #03e9f4;
+  color: #fff;
+  
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+}
+input[type="text"],input[type="number"]
+{
+  background-color:black;
+  color:white;
+  border:1px solid #03e9f4;
+}
+#diff
+{
+  background-color:black;
+  color:#03e9f4;
+}
+a{margin-left:140px;color:#03e9f4;text-decoration:none;}
+a:visited{color:red;}
+a:hover{text-decoration:underline;}
+p{font-size:18px;}
+
+#bg{position:fixed;
+bottom:0;right:0;
+ width:15%;
+ height:30px;
+}
