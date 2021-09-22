@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Block Game 1.0</title>
+  <title>Block Game 1.3</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,15 +11,83 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet"><link rel="stylesheet" href="./style.css">
+<link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/fcc07727e3.js" crossorigin="anonymous"></script><link rel="stylesheet" href="./style.css">
 
 </head>
 <body>
 <!-- partial:index.partial.html -->
 <div id="header"><h1>Block game</h1></div>
+<button style="position:absolute;top:60px;right:40px;background-color:#141e30;border:none;color:#03e9f4;"><i id="s" class="material-icons" style="font-size:45px;cursor:pointer;" title="open settings" onclick="settings_open()">settings</i></button>
+
+<div id="settings">
+  <div><i title="close settings" class="material-icons" style="font-size:30px;font-weight:bold;cursor:pointer;padding-top:6px;padding-left:6px;" onclick="settings_close()" >arrow_back</i> </div>
+  
+  <div style="margin-top:10px;">
+  <span id="d" style="margin-left:30px;">Choose difficulty level:
+    <select id="diff" class="setbutt" onchange="diff_change()">
+  <option value="newbie">Newbie [for beginers] </option>
+  <option value="easy" selected>Easy</option>
+  <option value="intermediate">Intermediate</option>
+  <option value="hard">Hard</option>
+  <option value="extreme hard">Extreme hard</option>
+      </select>
+      </span>
+  </div>
+  
+  <div style="margin-top:70px;">
+    <span style="margin-left:30px;"><i class="material-icons" style="position:relative;bottom:-5px;">music_note</i>Select background song: 
+      <select id="bgsong" class="setbutt"  onchange="bg_choose()">
+        <option value="1" selected>Piano [default]</option>
+        <option value="2">90s Flav call me</option>
+        <option value="3">Deemo</option>
+        <option value="4">Flower Dance</option>
+        <option value="5">Ghost choir vocals</option>
+        <option value="6">Ghost choir</option>
+        <option value="7">Gokukoku</option>
+        <option value="8">Jade penetrate</option>
+        <option value="9">Martin Garrix</option>
+        <option value="10">Middle Island</option>
+        <option value="11">Next to you [parasyte]</option>
+        <option value="12">Sakuzyo</option>
+        <option value="13">Sawawa</option>
+        <option value="14">Senbonzakura</option>
+      </select>
+    </span>
+    <span style="margin-left:30px;position:relative;top:10px;">
+      Volume: <input id="bgvol" type="range" min="1" max="100" onchange="bg_vol()" value="50"/>
+    </span>
+  </div>
+  
+  <div style="margin-top:70px;">
+    <span style="margin-left:30px;">Select click sound effect: 
+      <select id="clicksong" class="setbutt"  onchange="click_choose()">
+        <option value="1" selected>default click</option>
+        <option value="2">Arcade casino</option>
+        <option value="3">Error</option>
+        <option value="4">Melodic tone</option>
+        <option value="5">Mouse click</option>
+        <option value="6">Negative tone</option>
+        <option value="7">Positive beep</option>
+        <option value="8">Scifi- click</option>
+        <option value="9">Video game</option>
+        <option value="10">Game quest</option>
+        <option value="11">Game quest retro</option>
+        <option value="12">Game waring</option>
+        <option value="13">Under water scifi</option>
+        </select>
+    </span>
+  </div>
+  
+  <div style="height:100px;text-align:center;padding-top:75px;">
+    <a href="extra/about.html"><button id="abt" style="font-size:25px;">ABOUT</button></a>
+  </div>
+  
+</div>
 
 <p>Compete to see how much you can score 
-  <a href="#rule" style="margin-left:140px;"><i class="material-icons" style="position:relative;bottom:-5px;">content_paste</i> Check rules</a>
+  <a href="#rule" class="nlink" style="margin-left:140px;"><i class="material-icons" style="position:relative;bottom:-5px;">content_paste</i> Check rules</a>
   <!--<a href="#bg" style="margin-left:140px;"><i class="material-icons" style="position:relative;bottom:-5px;">music_note</i> Toggle bg music</a>-->
 </p>
 
@@ -28,48 +96,52 @@
     <input id="time_quantity" type="number" min="10" max="120" step="5" value="10" onchange="check_time_limit()"/>
     <span id="unit">seconds</span>
     
-    <span id="timer">Timer: </span><input type="text" title="time elapsed. . ." id ="op_time" disabled/>
-    <input type="button" title="Start over again, even if you are in middle of the game" id="reset" value="Reset" onclick="Reset()"/><span id="d" style="position:relative;left:-5px;">Choose difficulty level: </span>
-    <select id="diff" onchange="diff_change()">
-  <option value="newbie">Newbie</option>
-  <option value="easy" selected>Easy</option>
-  <option value="intermediate">Intermediate</option>
-  <option value="hard">Hard</option>
-  <option value="Proffestional OSU player">Proffestional OSU player</option>
-      </select>
+   
+    
     
     </br></br>
 
     <input type = "button" value="Start" onclick="play()"/>
     <input type ="button" id="pause_btn" value="Pause" onclick="pause()"/>
+<input type="button" title="Start over again, even if you are in middle of the game" id="reset" value="Reset" onclick="Reset()"/>
 
-  <p id="score">You scored: <output id="_score">0</output><span id="sco_lvl"></span></br><span id="sco_fb"></span>
+  <p id="score">You scored: <output id="_score">0</output><span id="sco_lvl"></span></br>
+<span id="sco_fb"></span> <span style="float:right;width:35px;height:40px;position:relative;bottom:21px;left:-55px;border;cursor:pointer;"><i class="material-icons" style="font-size:48px;background-color:#03e9f4;" onclick="cncl_fb()">cancel</i></span>
     </p>
 
+
   </div>
 
+<div style="margin-top:-13px;">
+  
+ <span id="timer" style="margin-left:720px;position:relative;bottom:-14px;">Timer: <input type="text" title="time elapsed. . ." id ="op_time" disabled/></span>
+
   <div id ="container" style="height:500px;max-width:1150px;">
-  <div id="block" onclick="touched()">
-    </div>
+  <!--<button id="block" onclick="touched()">
+    </button>-->
+   <i class='fas fa-fish' id="block" onclick="touched()"></i>
   </div>
+  
+</div>
 
   <div id="rule">
     <h2 id="rule_head">Rules are as follows:</h2>
     <ul id="rule_list">
-      <li>Each time you click the box it counts as score 1</li>
+      <li>Each time you click the fish while its moving the score increases</li>
       <li><b>The score is displayed at top, at the end of the game only</b></li>
       <li>If you messed up in the middle of the game, you can click reset to end the game and start over again</li>
-      <li>Choose the difficulty level that fits you the best</li>
-      <li><b>There is a sound effect to let you know that the block has been succefully caught</b>, as some times you may feel you<br/> clicked the block but actually it didn't happen</li>
-      <li><i>Clicking the center of the box increases the accuracy</i></li>
+      <li>Choose the difficulty level that fits you the best in settings</li>
+      <li><b>There is a sound effect to let you know that the fish has been succefully caught</b>, as some times you may feel you<br/> clicked the block but actually it didn't happen</li>
+      <li><i>Clicking the center of the fish increases the accuracy</i></li>
       <li>You have the ability to pause the game in middle</li>
+      <li>you can set the time limit to change the duration of the game</li>
       </ul>
   </div>
 
 <div id="footer" style="height:200px;">
   <br/>
   <input type="button" id="bg" value="Background music [off]" onclick="audio_func()"/>
-  <p>If you have any suggestions, <a href="mailto:shaktip2014@gamil.com" target="_blank">send mail</a>
+  <p>If you have any suggestions, <a href="mailto:shaktip2014@gamil.com" target="_blank" class="nlink" >send mail</a>
 </div>
 <!-- partial -->
   <script  src="./script.js"></script>
