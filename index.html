@@ -19,7 +19,9 @@
 <body>
 <!-- partial:index.partial.html -->
 <div id="header"><h1>Block game</h1></div>
-<button style="position:absolute;top:60px;right:40px;background-color:#141e30;border:none;color:#03e9f4;"><i id="s" class="material-icons" style="font-size:45px;cursor:pointer;" title="open settings" onclick="settings_open()">settings</i></button>
+<button style="position:absolute;top:60px;right:40px;background-color:#141e30;border:none;color:#03e9f4;">
+  <i id="s" class="material-icons" style="font-size:45px;cursor:pointer;" title="open settings" onclick="settings_open()">settings</i>
+</button>
 
 <div id="settings">
   <div><i title="close settings" class="material-icons" style="font-size:30px;font-weight:bold;cursor:pointer;padding-top:6px;padding-left:6px;" onclick="settings_close()" >arrow_back</i> </div>
@@ -106,7 +108,8 @@
 <input type="button" title="Start over again, even if you are in middle of the game" id="reset" value="Reset" onclick="Reset()"/>
 
   <p id="score">You scored: <output id="_score">0</output><span id="sco_lvl"></span></br>
-<span id="sco_fb"></span> <span style="float:right;width:35px;height:40px;position:relative;bottom:21px;left:-55px;border;cursor:pointer;"><i class="material-icons" style="font-size:48px;background-color:#03e9f4;" onclick="cncl_fb()">cancel</i></span>
+<span id="sco_fb"></span> 
+<span style="float:right;width:35px;height:40px;position:relative;bottom:21px;left:-55px;cursor:pointer;"><i class="material-icons" style="font-size:48px;background-color:#03e9f4;" onclick="cncl_fb()">cancel</i></span>
     </p>
 
 
