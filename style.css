@@ -153,12 +153,15 @@ bottom:0;right:0;
   margin-left:800px;
   z-index:1;
   height:1335px;
+  /* height:100vh; */
   border:solid 2px #03e9f4;;
   position:absolute;
   top:0;right:0;
   background-color: black;
   width:425px;
   display:none;
+  overflow-y:auto;
+  border-right: none;
 }
 #s:hover{
   text-shadow: 0 0 5px #03e9f4,
