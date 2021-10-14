@@ -76,13 +76,15 @@ function play()
   c=0;
   timer_is_on=1;
   document.getElementById("pause_btn").value="Pause";
+  document.getElementById("container").scrollIntoView({block:"center"});
   time_limit();
 }
 //game over/ends 
 function game_end() {
   document.getElementById("block").style.animationPlayState = "paused";
   document.getElementById("_score").value = clicks;
-  document.getElementById("score").style.display = "block";
+  document.getElementById("score").style.display = "grid";
+  document.getElementById("score").scrollIntoView({block:"center"});
   timer_is_on=0;
   //feedback system
   document.getElementById("sco_lvl").innerHTML =" in "+document.getElementById('diff').value +" level";
