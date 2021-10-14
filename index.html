@@ -4,42 +4,38 @@
   <meta charset="UTF-8">
   <title>Block Game 1.3</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="icon" href="extra/block2.png" type="image/icon type">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet">
-
-<script src="https://kit.fontawesome.com/fcc07727e3.js" crossorigin="anonymous"></script><link rel="stylesheet" href="./style.css">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="extra/block2.png" type="image/icon type">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/fcc07727e3.js" crossorigin="anonymous"></script><link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<!-- partial:index.partial.html -->
+<!-- -------------header and settings button----------- -->
 <div id="header"><h1>Block game</h1></div>
-<button style="position:absolute;top:60px;right:40px;background-color:#141e30;border:none;color:#03e9f4;">
-  <i id="s" class="material-icons" style="font-size:45px;cursor:pointer;" title="open settings" onclick="settings_open()">settings</i>
+<button class="settings_btn" >
+  <i id="s" class="material-icons" title="open settings" onclick="settings_open()">settings</i>
 </button>
+<!-- --------------settings tab----------- -->
 
 <div id="settings">
-  <div><i title="close settings" class="material-icons" style="font-size:30px;font-weight:bold;cursor:pointer;padding-top:6px;padding-left:6px;" onclick="settings_close()" >arrow_back</i> </div>
-  
-  <div style="margin-top:10px;">
-  <span id="d" style="margin-left:30px;">Choose difficulty level:
-    <select id="diff" class="setbutt" onchange="diff_change()">
-  <option value="newbie">Newbie [for beginers] </option>
-  <option value="easy" selected>Easy</option>
-  <option value="intermediate">Intermediate</option>
-  <option value="hard">Hard</option>
-  <option value="extreme hard">Extreme hard</option>
+  <div><i title="close settings" class="material-icons" style="font-size:2em;font-weight:bold;cursor:pointer;padding-top:6px;padding-left:6px;" onclick="settings_close()" >arrow_back</i> </div>
+  <div class="settings_content">
+    <div >
+      <span id="d" >Choose difficulty level:
+      <select id="diff" class="setbutt" onchange="diff_change()">
+        <option value="newbie">Newbie [for beginers] </option>
+        <option value="easy" selected>Easy</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="hard">Hard</option>
+        <option value="extreme hard">Extreme hard</option>
       </select>
       </span>
-  </div>
+    </div>
   
-  <div style="margin-top:70px;">
-    <span style="margin-left:30px;"><i class="material-icons" style="position:relative;bottom:-5px;">music_note</i>Select background song: 
+    <div>
+      <span><i class="material-icons" style="position:relative;bottom:-5px;">music_note</i>Select background song: 
       <select id="bgsong" class="setbutt"  onchange="bg_choose()">
         <option value="1" selected>Piano [default]</option>
         <option value="2">90s Flav call me</option>
@@ -56,14 +52,15 @@
         <option value="13">Sawawa</option>
         <option value="14">Senbonzakura</option>
       </select>
-    </span>
-    <span style="margin-left:30px;position:relative;top:10px;">
+      </span>
+      <br/>
+      <span style="display:block;margin-top: 1em;">
       Volume: <input id="bgvol" type="range" min="1" max="100" onchange="bg_vol()" value="50"/>
-    </span>
-  </div>
+      </span>
+    </div>
   
-  <div style="margin-top:70px;">
-    <span style="margin-left:30px;">Select click sound effect: 
+    <div>
+      <span>Select click sound effect: 
       <select id="clicksong" class="setbutt"  onchange="click_choose()">
         <option value="1" selected>default click</option>
         <option value="2">Arcade casino</option>
@@ -78,55 +75,56 @@
         <option value="11">Game quest retro</option>
         <option value="12">Game waring</option>
         <option value="13">Under water scifi</option>
-        </select>
-    </span>
-  </div>
+      </select>
+      </span>
+    </div>
   
-  <div style="height:100px;text-align:center;padding-top:75px;">
-    <a href="extra/about.html"><button id="abt" style="font-size:25px;">ABOUT</button></a>
+    <div style="text-align:center;margin-top:2em;">
+    <a href="extra/about.html"><button id="abt" style="font-size:1.5em;">ABOUT</button></a>
+    </div>
   </div>
-  
 </div>
+<!-- ----------------console area----------------- -->
 
 <p>Compete to see how much you can score 
-  <a href="#rule" class="nlink" style="margin-left:140px;"><i class="material-icons" style="position:relative;bottom:-5px;">content_paste</i> Check rules</a>
-  <!--<a href="#bg" style="margin-left:140px;"><i class="material-icons" style="position:relative;bottom:-5px;">music_note</i> Toggle bg music</a>-->
+  <a href="#rule" class="nlink" style="margin-left:10vw;"><i class="material-icons" style="position:relative;bottom:-5px;">content_paste</i> Check rules</a>
 </p>
 
   <div id="buttons">
     <span>Set the time limit:</span>
     <input id="time_quantity" type="number" min="10" max="120" step="5" value="10" onchange="check_time_limit()"/>
     <span id="unit">seconds</span>
-    
-   
-    
-    
+     
     </br></br>
 
     <input type = "button" value="Start" onclick="play()"/>
     <input type ="button" id="pause_btn" value="Pause" onclick="pause()"/>
-<input type="button" title="Start over again, even if you are in middle of the game" id="reset" value="Reset" onclick="Reset()"/>
+    <input type="button" title="Start over again, even if you are in middle of the game" id="reset" value="Reset" onclick="Reset()"/>
 
-  <p id="score">You scored: <output id="_score">0</output><span id="sco_lvl"></span></br>
-<span id="sco_fb"></span> 
-<span style="float:right;width:35px;height:40px;position:relative;bottom:21px;left:-55px;cursor:pointer;"><i class="material-icons" style="font-size:48px;background-color:#03e9f4;" onclick="cncl_fb()">cancel</i></span>
-    </p>
-
-
+    <div id="score">
+      <div class="score_info">
+        You scored: <output id="_score">0</output><span id="sco_lvl"></span></br>
+        <div id="sco_fb"></div>
+      </div>
+      <div class="score_cancel">
+        <i class="material-icons" onclick="cncl_fb()">cancel</i>
+      </div>
+    </div>
   </div>
+  <!----------------- playing area should always be in viewport fully---------------- -->
 
 <div style="margin-top:-13px;">
   
- <span id="timer" style="margin-left:720px;position:relative;bottom:-14px;">Timer: <input type="text" title="time elapsed. . ." id ="op_time" disabled/></span>
+ <span id="timer" style="position:relative;bottom:-14px;">Timer: <input type="text" title="time elapsed. . ." id ="op_time" disabled/></span>
 
-  <div id ="container" style="height:500px;max-width:1150px;">
+  <div id ="container">
   <!--<button id="block" onclick="touched()">
     </button>-->
    <i class='fas fa-fish' id="block" onclick="touched()"></i>
   </div>
   
 </div>
-
+<!-- ---------------rules section--------------- -->
   <div id="rule">
     <h2 id="rule_head">Rules are as follows:</h2>
     <ul id="rule_list">
@@ -140,8 +138,8 @@
       <li>you can set the time limit to change the duration of the game</li>
       </ul>
   </div>
-
-<div id="footer" style="height:200px;">
+<!-- ------------------footer section----------------- -->
+<div id="footer">
   <br/>
   <input type="button" id="bg" value="Background music [off]" onclick="audio_func()"/>
   <p>If you have any suggestions, <a href="mailto:shaktip2014@gamil.com" target="_blank" class="nlink" >send mail</a>
