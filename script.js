@@ -364,5 +364,3 @@ function bg_vol(){
 $(".cancel_signin").click(()=>{
   $(".signin_popup").slideUp(200);
 });
-
-/* ------------------firebase stuff--------------- */

@@ -108,6 +108,3 @@ onAuthStateChanged(auth, (user) => {
     console.log('im signed out');
   }
 });
- 
-
-  
