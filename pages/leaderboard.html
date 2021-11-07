@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/fcc07727e3.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="../extra/block2.png" type="image/icon type">
+    <link rel="stylesheet" href="./style_leaderboard.css">
+    <title>Leaderboards</title>
+</head>
+<body>
+    <!-- top section with modes and table in grid -->
+<div class="grid_container">
+    <section class="options">
+        <button class="ham_burger"><i class='fas fa-bars'></i></button>
+        <div class="opts">
+        <button class="custom_btn">Newbie 20 sec</button>
+        <button class="custom_btn">Newbie 40 sec</button>
+        <button class="custom_btn">Newbie 60 sec</button>
+        <button class="custom_btn">Easy 20 sec</button>
+        <button class="custom_btn">Easy 40 sec</button>
+        <button class="custom_btn">Easy 60 sec</button>
+        <button class="custom_btn">Intermediate 20 sec</button>
+        <button class="custom_btn">Intermediate 40 sec</button>
+        <button class="custom_btn">Intermediate 60 sec</button>
+        <button class="custom_btn">Hard 20 sec</button>
+        <button class="custom_btn">Hard 40 sec</button>
+        <button class="custom_btn">Hard 60 sec</button>
+        <button class="custom_btn">Extreme Hard 20 sec</button>
+        <button class="custom_btn">Extreme Hard 40 sec</button>
+        <button class="custom_btn">Extreme Hard 60 sec</button>
+        </div>
+    </section>
+    <section class="l_board">
+        <table>
+            <thead>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Score</th>
+            </thead>
+            <tbody id="tbody1"></tbody>
+        </table>
+    </section>
+</div>
+<p class="my_score" title="select the game mode then click to view your score">
+    <span>View my score</span>
+</p>
+<div style="font-size: 0.8em;">
+    *sign-in and select the game mode to view your score
+</div>
+<br/>
+<div class="footer">
+    Leaderboards have the same name the player had at the time of the highscore<br/>
+    So if player has changed name and reaches a new highscore the name will be updated
+</div>
+    <!-- script -->
+    <script  type="module" src="./script_leaderboard.js"></script>
+</body>
+</html>

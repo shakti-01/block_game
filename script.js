@@ -1,30 +1,32 @@
-var time=null,clicks=null,t=null,flag=0,music_aud=0;
+var time=null,clicks=null,t=null,flag=0,bgmusic_is_on=0;//c and t in time limit function
 var c = 0;
 var music = new Audio("extra/bg/piano.mp3");
 var click_aud= new Audio("extra/click/click.wav");
 var timer_is_on = 0;
 var vol_val=0.5;
+var game_is_on = 0;
 //---bg music
 function audio_func()
 {
-  if(music_aud==0)
+  if(bgmusic_is_on==0)
   {
     music.play();
     music.loop = true;
     music.volume=vol_val;
-    music_aud=1;
+    bgmusic_is_on=1;
     document.getElementById("bg").value="Background music [on]";
   }
   else
   {
     music.pause();
     music.loop = false;
-    music_aud=0;
+    bgmusic_is_on=0;
     document.getElementById("bg").value="Background music [off]";
   }
 //the event after box is clicked  
 }
-function touched()
+//old touched
+/* function touched()
 {
   if(timer_is_on)
   {
@@ -32,14 +34,39 @@ function touched()
     click_aud.load();
     click_aud.play();
   }
-}
+} */
+//new touched in v2.0
+document.getElementById('block').onmousedown = ()=>{
+  if(timer_is_on){
+    clicks=clicks+1;
+    click_aud.load();
+    click_aud.play();
+  }
+};
 //time limit is not higher than max check
 function check_time_limit()
 {
-  if(document.getElementById("time_quantity").value>120)
-    {
-      document.getElementById("time_quantity").value=120;
-    }
+  let flag = 0;
+  let time = document.getElementById("time_quantity");
+  let time_value = document.getElementById("time_quantity").value;
+  if(time_value == 20 || time_value == 40 || time_value == 60){
+    flag = 0;
+  }
+  else if(time_value > 60){
+    time.value = 60;flag = 1;
+  }
+  else if(time_value > 40){
+    time.value = 40;flag = 1;
+  }
+  else if(time_value > 20){
+    time.value = 20;flag = 1;
+  }
+  else if(time_value < 20){
+    time.value = 20;flag = 1;
+  }
+  if(flag){
+    alert("The time modes currently available are 20, 40, 60 seconds only");
+  }
 }
 //difficulty level settings
 function diff_change()
@@ -69,6 +96,7 @@ function diff_change()
 //game started
 function play() 
 {
+  game_is_on = 1;
   time = document.getElementById("time_quantity").value;
   document.getElementById("score").style.display = "none";
   document.getElementById("block").style.animationPlayState = "running";
@@ -77,10 +105,12 @@ function play()
   timer_is_on=1;
   document.getElementById("pause_btn").value="Pause";
   document.getElementById("container").scrollIntoView({block:"center"});
+  diff_change();
   time_limit();
 }
 //game over/ends 
 function game_end() {
+  game_is_on = 0;
   document.getElementById("block").style.animationPlayState = "paused";
   document.getElementById("_score").value = clicks;
   document.getElementById("score").style.display = "grid";
@@ -108,7 +138,7 @@ function game_end() {
     {
       document.getElementById("sco_fb").innerHTML ="Oh my god you have grown so much that, at last you can reach here ! &#128522;"
     }
-  else if(clicks<45)
+  else if(clicks<40)
     {
       document.getElementById("sco_fb").innerHTML ="The score went through the roof !!! &#128565; &#128293;"
     }
@@ -120,6 +150,8 @@ function game_end() {
     {
       document.getElementById("sco_fb").innerHTML ="So long have i waited for you to reach here, my dear !! &#128584; &#128587; &#128515;"
     }
+  //-------------check that player is online and if is then add score if its highest
+  leaderBoardCheck(clicks,document.getElementById('diff').value,time);
   clicks=null;
 }
 /*function time_limit()
@@ -129,6 +161,9 @@ function game_end() {
 //game paused
 function pause()
 {
+  if(!game_is_on){
+    return;
+  }
   var p_status = document.getElementById("pause_btn").value
   if(p_status=="Pause")
   {
@@ -146,9 +181,13 @@ function pause()
 //reset the game
 function Reset()
 {
+  if(!game_is_on){
+    return;
+  }
+  game_is_on = 0;
   document.getElementById("block").style.animationPlayState = "paused";
   clicks=null;
-  clearTimeout(t);
+  stopCount();
   //document.getElementById("time_quantity").value = "10";
   document.getElementById("op_time").value = "";
   document.getElementById("score").style.display = "none";
@@ -307,7 +346,7 @@ function bg_choose(){
   else if(bg_option=="14"){
     music = new Audio("extra/bg/Senbonzakura.mp3");
   }
-  if(music_aud==1){
+  if(bgmusic_is_on==1){
     music.play();
     music.volume=vol_val;
     music.loop = true;
@@ -319,3 +358,11 @@ function bg_vol(){
   vol_val=vol_val/100;
   music.volume=vol_val;
 }
+/* --------------------signin popup left--------------- */
+//import { leaderBoardCheck } from "./pages/script_auth.js";
+
+$(".cancel_signin").click(()=>{
+  $(".signin_popup").slideUp(200);
+});
+
+/* ------------------firebase stuff--------------- */

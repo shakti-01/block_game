@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../extra/block2.png" type="image/icon type">
+    <link rel="stylesheet" href="./style_login.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="login_box">
+        <h2>Login</h2>
+        <form>
+            <div>
+            <label>E-mail:</label><br/>
+            <input id="email" type="email" autocomplete="username"/>
+            </div>
+            <div>
+            <label>Password:</label><br/>
+            <input id="password" type="password" autocomplete="current-password"/>
+            </div>
+            <div class="btns">
+            <button id="signin">Sign-in</button>
+            <button id="signup">Sign-up</button>
+            <div class="line"></div>
+            <button id="google_signin">Sign-in by Google</button>
+            </div>
+        </form>
+    </div>
+    <p class="footer_caution">Please wait while being re-directed after logging in</p>
+    <!-- ------------------------script------------- -->
+    <script  type="module" src="./script_login.js"></script>
+
+</body>
+</html>
