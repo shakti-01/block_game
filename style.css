@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Nova+Oval&family=Nova+Round&display=swap');
 /* font-family: 'Nova Oval', cursive;
 font-family: 'Nova Round', cursive; */
+:root{
+  --neon: #00e6e6;
+  --darkbg :#142730;
+}
 body {
   font-family: 'Nova Square', cursive;
   margin:1em;
@@ -85,6 +89,15 @@ input[type="text"],input[type="number"]
   color:white;
   border:1px solid #03e9f4;
 }
+/* ----fix for no spinner in input type number in chrome---- */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  width: 1.1em;
+}
+/* Firefox */
+/* input[type=number] {
+  -moz-appearance: scrollbarthumb-vertical;
+} */
 #reset {margin-left:30px;}
 #pause_btn{margin-left:30px;}
 .nlink {color:#03e9f4;text-decoration:none;}
@@ -163,6 +176,10 @@ div #block:hover
   background-color:transparent;
   border:none;
   color:#03e9f4;
+  transition: transform 1s;
+}
+.settings_btn:hover{
+  transform: rotate(120deg);
 }
 #settings{
   z-index:1;
@@ -232,7 +249,54 @@ div #block:hover
   bottom:0;
   right:0;
 }
-
+/* --------overlays----------- */
+/* sign in */
+.signin_popup{
+  position: fixed;
+  top:10vh;
+  left:0;
+  z-index: 1;
+  background: #013636;
+  outline:solid 1px #00e6e6;
+  padding: 1rem;
+  padding-bottom: 0.5rem;
+}
+.cancel_signin{
+  margin:0;padding: 0;
+  background: transparent;
+  transform: translate(1rem,-1rem);
+  border: none;
+  cursor: pointer;
+  margin-top: -7px;
+  color: #00e6e6;
+}
+.custom_btn{
+  color: #00e6e6;
+  cursor: pointer;
+  border: 1px solid #00e6e6;
+  border-radius: 3px;
+  background: transparent;
+}
+.login_page{
+  display: block;
+  color:#00e6e6;
+  margin: 4px 0;
+}
+.enterIGN{
+  min-height: 100vh;
+  background: rgba(2, 60, 65, 0.97);
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index: 5;
+  display: none;
+  place-items:center;
+}
+.ign_container_center{
+  background: #013636;
+  padding: 1em;
+}
 /* --------------------media querries---------- */
 @media screen and (max-width: 700px) {
   #bgvol{width:25vw;}

@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Oval&family=Nova+Round&display=swap');
+/* font-family: 'Nova Oval', cursive;
+font-family: 'Nova Round', cursive; */
+:root{
+    --neon:#00e6e6;
+}
+body{
+    margin:0;
+    padding:0 0.2em;
+    min-height: 100vh;
+    background: linear-gradient(#141e30, #1b2f46);/* #243b55 @nd color original */
+    color: #00e6e6;
+    font-family: 'Nova Round', cursive;
+    
+}
+/* -----------grid---- */
+.grid_container{
+    display: grid;
+    grid-template-columns: 20vw 1fr;
+    padding-top:0.2em;
+}
+.options .ham_burger{
+    background: transparent;
+    color: var(--neon);
+    border: none;
+    cursor: pointer;
+    font-size: 1.6rem;
+}
+.options{
+    grid-column: 1;
+}
+.l_board{
+    grid-column: 2;
+    padding: 0.5em;
+    
+}
+/* ------opt btns----- */
+.custom_btn{
+    background: rgba(0,0,0,0.7);
+    color:var(--neon);
+    border: none;
+    border-bottom:solid 2px var(--neon);
+    border-right: solid 2px var(--neon);
+    display: block;
+    width:98%;
+    padding:0.5em 0.5em;
+    text-align: left;
+    padding-left: 2em;
+    margin-bottom: 0.3em;
+    cursor: pointer;
+    border-radius: 0.2em;
+}
+.custom_btn:hover{
+    background-color: var(--neon);
+    color: black;
+    border-color: black;
+}
+/* ------------table--------- */
+.l_board table{
+    width:calc(100% - 8vw);
+    border-collapse: collapse;
+    border: 2px solid black;
+    margin:0 auto;
+    background-color:#0d4d4d;
+}
+.l_board td{
+    padding: 0.5em;
+    padding-left: 1em;
+    border-left: 2px solid black;
+}
+.l_board th{
+    padding: 1em;
+    color: red !important;
+    font-family: 'Nova Oval', cursive;
+    font-size: larger;
+}
+.l_board thead{
+    border: 2px solid black;
+    outline: 2px solid rgba(255, 0, 0, 0.459);
+    outline-offset: -4px;
+}
+.l_board table tr:nth-child(even){
+    background-color: #013636;
+}
+.l_board tbody tr:hover, .l_board table tbody tr:nth-child(even):hover{
+    background-color: black;
+    color: white;
+}
+/* ---------myscore--------- */
+.my_score{
+    cursor: pointer;
+    border: 1px solid var(--neon);
+    padding: 0.2em 0.4em;
+    display: inline-block;
+}
+/* -----footer-------- */
+.footer{
+    text-align: center;
+    border-top: 2px solid red;
+    color:rgb(255, 57, 57);
+}
+@media screen and (max-width: 600px){
+    .grid_container{
+        display: block;
+    }
+    .l_board{
+        margin-top: 1em;
+    }
+    .l_board table{
+        width:calc(100% - 2vw);
+    }
+}

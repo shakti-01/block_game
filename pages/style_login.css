@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Oval&family=Nova+Round&display=swap');
+/* font-family: 'Nova Oval', cursive;
+font-family: 'Nova Round', cursive; */
+:root{
+    --neon:#00e6e6;
+}
+body{
+    min-height: 100vh;
+    background: linear-gradient(#141e30, #243b55);
+    color: #00e6e6;
+    font-family: 'Nova Round', cursive;
+    display: grid;
+    place-items: center;
+}
+.login_box{
+    display: grid;
+    place-items: center;
+    background: rgba(0,0,0,.6);
+    box-sizing: border-box;
+    width: 400px;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+    padding: 1.5em;
+}
+.login_box h2{
+    text-align: center;
+    font-family: 'Nova Round', cursive;
+}
+.login_box label{
+    color: white;
+}
+.login_box input, .login_box input:focus{
+    background: transparent;
+    width:300px;
+    border: none;
+    padding:5px 0px;
+    color:white;
+    border-bottom: 1px solid var(--neon);
+    outline: none;
+}
+.login_box form>div{
+    margin: 0.7em 0;
+}
+.login_box button{
+    color: black;
+    font-weight: 550;
+    padding:4px 8px;
+    margin:5px;
+    border-radius: 2px;
+    cursor: pointer;
+    border: 1px solid;
+    background:var(--neon);
+}
+.line{
+    height:2px;
+    background: rgba(22, 149, 223, 0.1);
+    margin:0.8em 0;
+}
+.btns{
+    text-align: center;
+    margin: 5px 0;
+}
+.footer_caution{
+    position: absolute;
+    bottom: 0;
+    right:0;
+    margin: 0.5em 0.3em;
+    font-size: 0.8em;
+}
+@media screen and (max-width: 450px){
+    .login_box{
+        width:90vw;
+        padding: 10px;
+    }
+    .login_box input, .login_box input:focus{
+        width:75vw;
+    }
+}
