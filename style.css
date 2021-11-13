@@ -279,7 +279,8 @@ div #block:hover
 }
 .login_page{
   display: block;
-  color:#00e6e6;
+  /* color:#00e6e6; */
+  color: red !important;
   margin: 4px 0;
 }
 .enterIGN{
