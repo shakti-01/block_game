@@ -93,9 +93,15 @@ function diff_change()
       document.getElementById("block").style.animationDuration = "12s";
     }
 }
+//do not let the player scroll inside the playing area while the game is on 
+//only for touch screen players
+function preventScrolling(e){
+  e.preventDefault();
+}
 //game started
 function play() 
 {
+  document.getElementById('container').addEventListener('touchmove',preventScrolling);
   game_is_on = 1;
   time = document.getElementById("time_quantity").value;
   document.getElementById("score").style.display = "none";
@@ -110,6 +116,7 @@ function play()
 }
 //game over/ends 
 function game_end() {
+  document.getElementById('container').removeEventListener('touchmove',preventScrolling);
   game_is_on = 0;
   document.getElementById("block").style.animationPlayState = "paused";
   document.getElementById("_score").value = clicks;
@@ -169,13 +176,15 @@ function pause()
   {
     document.getElementById("block").style.animationPlayState = "paused";
     stopCount();
-    document.getElementById("pause_btn").value="Play"
+    document.getElementById("pause_btn").value="Play";
+    document.getElementById('container').removeEventListener('touchmove',preventScrolling);
   }
   else
     {
       document.getElementById("block").style.animationPlayState = "running";
       startCount();
-      document.getElementById("pause_btn").value="Pause"
+      document.getElementById("pause_btn").value="Pause";
+      document.getElementById('container').addEventListener('touchmove',preventScrolling);
     }
 }
 //reset the game
@@ -185,6 +194,7 @@ function Reset()
     return;
   }
   game_is_on = 0;
+  document.getElementById('container').removeEventListener('touchmove',preventScrolling);
   document.getElementById("block").style.animationPlayState = "paused";
   clicks=null;
   stopCount();
