@@ -2,14 +2,14 @@
 /* font-family: 'Nova Oval', cursive;
 font-family: 'Nova Round', cursive; */
 :root{
-    --neon:#00e6e6;
+    --neon:var(--neon);
 }
 body{
     margin:0;
     padding:0 0.2em;
     min-height: 100vh;
     background: linear-gradient(#141e30, #1b2f46);/* #243b55 @nd color original */
-    color: #00e6e6;
+    color: var(--neon);
     font-family: 'Nova Round', cursive;
     
 }
@@ -80,7 +80,7 @@ body{
     outline-offset: -4px;
 }
 .l_board table tr:nth-child(even){
-    background-color: #013636;
+    background-color: var(--darkbg2);
 }
 .l_board tbody tr:hover, .l_board table tbody tr:nth-child(even):hover{
     background-color: black;
