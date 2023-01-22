@@ -43,6 +43,24 @@
 <div id="settings">
   <div><i title="close settings" class="material-icons" style="font-size:2em;font-weight:bold;cursor:pointer;padding-top:6px;padding-left:6px;" onclick="settings_close()" >arrow_back</i> </div>
   <div class="settings_content">
+    <h3 class="settings-head">Account settings</h3>
+    <div>
+      <span id="ign_area">
+        Name : <output class="ign"></output>
+        <i id='ign_edit' class='material-icons' style='font-size:1.2em;cursor:pointer;transform:translateY(3px);'>edit</i>
+      </span>
+    </div>
+
+    <div>
+      <output class="online_status">on line</output>
+    </div>
+
+    <div>
+      <a href="./pages/login.html"><button class="custom_btn btn-fill">Login</button></a>
+      <button id="signout" class="custom_btn btn-fill">Sign-out</button>
+    </div>
+
+    <h3 class="settings-head">Game settings</h3>
     <div >
       <span id="d" >Choose difficulty level:
       <select id="diff" class="setbutt" onchange="diff_change()">
@@ -101,24 +119,10 @@
     </div>
 
     <div>
-      <a href="./pages/leaderboard.html"><button class="custom_btn">Leaderboard</button></a>
+      <a href="./pages/leaderboard.html"><button class="custom_btn btn-fill">Leaderboard</button></a>
     </div>
     
-    <div>
-      <span id="ign_area">
-        Name : <output class="ign"></output>
-        <i id='ign_edit' class='material-icons' style='font-size:1.2em;cursor:pointer;transform:translateY(3px);'>edit</i>
-      </span>
-    </div>
-
-    <div>
-      <output class="online_status">on line</output>
-    </div>
-
-    <div>
-      <a href="./pages/login.html"><button class="custom_btn">Login</button></a>
-      <button id="signout" class="custom_btn">Sign-out</button>
-    </div>
+    
   
     <div style="text-align:center;margin-top:2em;">
     <a href="./pages/about.html"><button id="abt" style="font-size:1.5em;">ABOUT</button></a>

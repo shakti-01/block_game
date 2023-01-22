@@ -4,12 +4,15 @@ font-family: 'Nova Round', cursive; */
 :root{
   --neon: #00e6e6;
   --darkbg :#142730;
+  --black:rgb(10, 10, 10);
+  --darkbg2: #013636;
+  --darkbg3:#004d4d;
 }
 body {
   font-family: 'Nova Square', cursive;
   margin:1em;
-  background: linear-gradient(#141e30, #243b55);
-  color: #00e6e6;
+  background: linear-gradient(var(--darkbg), var(--black));
+  color: var(--neon);
   padding: 0;
 }
 ul {list-style-type: square;}
@@ -18,12 +21,12 @@ html { scroll-behavior: smooth;}
 ::-webkit-scrollbar { width: 7px;}
 ::-webkit-scrollbar-track { background: black;}
 ::-webkit-scrollbar-thumb { background: rgba(19, 214, 228, 0.7);}
-::-webkit-scrollbar-thumb:hover { background: rgba(19,214,228,1);}
+::-webkit-scrollbar-thumb:hover { background: var(--neon);}
 /* ----------------header area------------ */
 #header:hover
 {
   transform: rotate(360deg);
-  border:solid 3px #03e9f4;
+  border:solid 0.14em var(--neon);
 }
 #header{
   transition: transform 5s, border 4s;
@@ -35,7 +38,7 @@ html { scroll-behavior: smooth;}
 }
 /* -------------console area------------ */
 #score{
-  background-color:#03e9f4;color:black;padding:10px;
+  background-color:var(--neon);color:var(--black);padding:10px;
   font-size: 1.1em;
   margin-top:1em;
   margin-bottom: 1em;
@@ -63,8 +66,8 @@ html { scroll-behavior: smooth;}
 }
 input[type="button"]
 {
-  background-color:#141e30;
-  color:#03e9f4;
+  background-color:var(--darkbg);
+  color:var(--neon);
   padding: 0.5em 1em;
   text-align: center;
   font-family: monospace;
@@ -75,19 +78,22 @@ input[type="button"]
 }
 input[type="button"]:hover
 {
-  background: #03e9f4;
+  background: var(--neon);
   color: #fff;
   
-  box-shadow: 0 0 5px #03e9f4,
-              0 0 25px #03e9f4,
-              0 0 50px #03e9f4,
-              0 0 100px #03e9f4;
+  box-shadow: 0 0 5px var(--neon),
+              0 0 25px var(--neon),
+              0 0 50px var(--neon),
+              0 0 100px var(--neon);
 }
 input[type="text"],input[type="number"]
 {
   background-color:black;
   color:white;
-  border:1px solid #03e9f4;
+  border:1px solid var(--neon);
+}
+input[type="number"]{
+  cursor: pointer;
 }
 /* ----fix for no spinner in input type number in chrome---- */
 input::-webkit-outer-spin-button,
@@ -100,7 +106,7 @@ input::-webkit-inner-spin-button {
 } */
 #reset {margin-left:30px;}
 #pause_btn{margin-left:30px;}
-.nlink {color:#03e9f4;text-decoration:none;}
+.nlink {color:var(--neon);text-decoration:none;}
 .nlink:visited{color:red;}
 .nlink:hover{text-decoration:underline;}
 
@@ -150,7 +156,7 @@ div #block{
 #container
 {
   background-color:black;
-  border: solid 5px cyan;
+  border: solid 5px var(--neon);
   margin:auto;
   margin-top:13px;
   height:500px;
@@ -161,8 +167,8 @@ div #block{
 div #block:hover 
 {
   cursor:pointer;
-  text-shadow: 0 0 10px #03e9f4,
-              0 0 25px #03e9f4;
+  text-shadow: 0 0 10px var(--neon),
+              0 0 25px var(--neon);
 }
 
 #timer{margin-left:50%;}
@@ -175,7 +181,7 @@ div #block:hover
   right:2rem;
   background-color:transparent;
   border:none;
-  color:#03e9f4;
+  color:var(--neon);
   transition: transform 1s;
 }
 .settings_btn:hover{
@@ -184,7 +190,7 @@ div #block:hover
 #settings{
   z-index:1;
   height:100vh;
-  border:solid 2px #03e9f4;
+  border:solid 2px var(--neon);
   position:absolute;
   top:0;right:0;
   background-color: black;
@@ -193,6 +199,12 @@ div #block:hover
   overflow-y:auto;
   border-right: none;
   padding: 0.8em;
+}
+.settings-head{
+  border-bottom:0.1em solid var(--neon);
+}
+.settings-head:not(:first-child){
+  margin-top: 3em;
 }
 .settings_content{
   padding-right:1em;
@@ -206,17 +218,17 @@ div #block:hover
   font-size:3.5em;cursor:pointer;
 }
 #s:hover{
-  text-shadow: 0 0 5px #03e9f4,
-              0 0 15px #03e9f4,
-              0 0 30px #03e9f4,
-              0 0 50px #03e9f4;
+  text-shadow: 0 0 5px var(--neon),
+              0 0 15px var(--neon),
+              0 0 30px var(--neon),
+              0 0 50px var(--neon);
   color: #fff;
 }
 #bgvol{width:200px;}
 #bgvol:hover{cursor:grab;}
 #abt{
   background-color:black;
-  color:#03e9f4;
+  color:var(--neon);
   padding: 8px 16px;
   cursor:pointer;
   border:solid 1px;
@@ -225,12 +237,12 @@ div #block:hover
 #diff,.setbutt
 {
   background-color:black;
-  color:#03e9f4;
+  color:var(--neon);
 }
 /*-------------rules section------------*/
 #rule
 {
-  border: 4px solid #004d4d;
+  border: 4px solid var(--darkbg3);
   padding:6px;
   border-radius:13px;
   padding-left:25px;
@@ -239,7 +251,7 @@ div #block:hover
 }
 #rule:hover
 {
-  border-color:#00e6e6;
+  border-color:var(--neon);
   background-color:black;
 }
 /* -----------footer section---------------*/
@@ -256,8 +268,8 @@ div #block:hover
   top:10vh;
   left:0;
   z-index: 1;
-  background: #013636;
-  outline:solid 1px #00e6e6;
+  background: var(--darkbg2);
+  outline:solid 1px var(--neon);
   padding: 1rem;
   padding-bottom: 0.5rem;
 }
@@ -268,24 +280,28 @@ div #block:hover
   border: none;
   cursor: pointer;
   margin-top: -7px;
-  color: #00e6e6;
+  color: var(--neon);
 }
 .custom_btn{
-  color: #00e6e6;
+  color: var(--neon);
   cursor: pointer;
-  border: 1px solid #00e6e6;
+  border: 1px solid var(--neon);
   border-radius: 3px;
   background: transparent;
 }
+.btn-fill{
+  background: var(--neon);
+  color: black;
+}
 .login_page{
   display: block;
-  /* color:#00e6e6; */
+  /* color:var(--neon); */
   color: red !important;
   margin: 4px 0;
 }
 .enterIGN{
   min-height: 100vh;
-  background: rgba(2, 60, 65, 0.97);
+  background: var(--darkbg3);
   position: fixed;
   top:0;
   left:0;
@@ -295,7 +311,7 @@ div #block:hover
   place-items:center;
 }
 .ign_container_center{
-  background: #013636;
+  background: var(--darkbg2);
   padding: 1em;
 }
 /* --------------------media querries---------- */
@@ -320,4 +336,11 @@ div #block:hover
   .settings_btn{top:1rem;right:1rem;}
   div #block{font-size: 12vw;}
   div #block:hover{text-shadow: none;}
+  .settings_content{ padding-left: 0.3em;padding-right: 0.3em;}
+  #container{ border: 1px solid var(--neon);}
+  body{margin-left:0;margin-right:0;}
+  #header{margin:0 0.5em;}
+  #buttons{margin:0 0.5em;}
+  #rule{margin:0 0.5em;}
+  #footer{margin:0 0.5em;}
 }

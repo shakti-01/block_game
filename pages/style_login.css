@@ -2,12 +2,12 @@
 /* font-family: 'Nova Oval', cursive;
 font-family: 'Nova Round', cursive; */
 :root{
-    --neon:#00e6e6;
+    --neon:var(--neon);
 }
 body{
     min-height: 100vh;
     background: linear-gradient(#141e30, #243b55);
-    color: #00e6e6;
+    color: var(--neon);
     font-family: 'Nova Round', cursive;
     display: grid;
     place-items: center;
