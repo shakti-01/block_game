@@ -2,7 +2,7 @@
 /* font-family: 'Nova Oval', cursive;
 font-family: 'Nova Round', cursive; */
 :root{
-    --neon:var(--neon);
+    --neon: rgb(52, 235, 222);
 }
 body{
     min-height: 100vh;
